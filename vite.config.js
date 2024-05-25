@@ -10,14 +10,6 @@ function branch_grabber() {
 	return {
 		name: "branch_grabber",
 		apply: "serve",
-		config() {
-			return {
-				define: {
-					__GIT_BRANCH__: JSON.stringify(branch),
-				},
-			};
-		},
-
 		resolveId(id) {
 			if (id === virtualModuleId) {
 				return resolvedVirtualModuleId;
