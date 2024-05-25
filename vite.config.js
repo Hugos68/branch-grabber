@@ -5,10 +5,14 @@ import { execSync } from "node:child_process";
 function branch_grabber() {
 	return {
 		name: "branch_grabber",
-		apply: 'serve',
+		apply: "serve",
 		config() {
 			const branch = execSync("git rev-parse --abbrev-ref HEAD").toString().trim();
-			console.log("Branch: ", branch);
+			return {
+				define: {
+					__GIT_BRANCH__: JSON.stringify(branch),
+				},
+			};
 		},
 	};
 }
