@@ -1,5 +1,7 @@
 <script>
-    const branch = __GIT_BRANCH__;
+    import { branch } from 'virtual:git';
+
+    
 </script>
 
 <p>{branch}</p>
